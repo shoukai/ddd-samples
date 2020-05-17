@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class EmployeeEntity {
-
     private String name;
     private String id;
-
 }

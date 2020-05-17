@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private Employee employee;
+    private final Employee employee;
+
+    public EmployeeService(Employee employee) {
+        this.employee = employee;
+    }
 
     public Integer entry(EmployeeEntryDTO employeeEntry) {
         employee.check(employeeEntry.getIdCard());

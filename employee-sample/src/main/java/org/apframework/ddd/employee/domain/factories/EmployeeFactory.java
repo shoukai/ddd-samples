@@ -10,4 +10,6 @@ public class EmployeeFactory {
         return employee;
     }
 
+    // …… 其他 build
+
 }
