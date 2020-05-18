@@ -1,5 +1,6 @@
 package org.apframework.ddd.employee.domain;
 
+import lombok.Builder;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
 import org.apframework.ddd.employee.domain.entity.EmployeeEntity;
 import org.apframework.ddd.employee.domain.factories.EmployeeFactory;
@@ -8,9 +9,8 @@ import org.apframework.ddd.employee.domain.vo.Skill;
 import org.apframework.ddd.employee.domain.vo.SkillSet;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
+@Builder
 public class Employee {
 
     private EmployeeMapper employeeMapper;
@@ -23,6 +23,7 @@ public class Employee {
 
     public void removeEmployee() {
         // 员工离职
+        // notify employee add done
     }
 
     public void addSkill(Skill skill) {
@@ -39,6 +40,7 @@ public class Employee {
         EmployeeEntity employeeEntity = EmployeeFactory.withName(employeeEntry.getName());
         // MAPPER SAVE
         // RETURN ID;
+        // notify employee add done
         return 1;
     }
 }

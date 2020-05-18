@@ -1,6 +1,7 @@
 package org.apframework.ddd.employee.service;
 
 import org.apframework.ddd.employee.domain.Employee;
+import org.apframework.ddd.employee.domain.WorkLog;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,9 @@ public class EmployeeService {
         Integer id = employee.entry(employeeEntry);
         employee.addSkillList(employeeEntry.getSkillSet());
         // ……
-        // notify employee add done
+
+        WorkLog log = new WorkLog();
+        //员工项目变更事件
         return id;
     }
 
