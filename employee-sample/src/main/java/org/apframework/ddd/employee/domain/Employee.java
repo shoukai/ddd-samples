@@ -4,7 +4,6 @@ import lombok.Builder;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
 import org.apframework.ddd.employee.domain.entity.EmployeeEntity;
 import org.apframework.ddd.employee.domain.factories.EmployeeFactory;
-import org.apframework.ddd.employee.domain.repository.EmployeeMapper;
 import org.apframework.ddd.employee.domain.vo.Skill;
 import org.apframework.ddd.employee.domain.vo.SkillSet;
 import org.springframework.stereotype.Service;
@@ -12,8 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 @Builder
 public class Employee {
-
-    private EmployeeMapper employeeMapper;
 
     public String createEmployee() {
         // employeeMapper save

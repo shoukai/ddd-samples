@@ -2,7 +2,7 @@
 
 示例需求参照张逸的专栏《领域驱动设计实践（战术篇）》示例思路，重新描述了部分需求内容，示例代码为自行发挥
 
-## 示例需求
+## 业务需求
 
 员工系统主要包括：
 1. 员工信息管理；
@@ -36,8 +36,15 @@
 
 项目信息为项目管理系统进行管理，已经建设完成，可以为当前待开发系统提供接口，需要整理需求提到项目管理团队。
 
+
+## 技术说明
+
+### MyBatis-Plus
+
+主页参考： * [MyBatis-Plus](https://mybatis.plus/)，示例参考： *[MyBatis-Plus Samples](https://github.com/baomidou/mybatis-plus-samples)
+
 # 示例参考
 
 * [领域驱动设计实践（战术篇）](https://gitbook.cn/gitchat/column/5cbed2f6f00736695f3a8699)
 * [员工上下文的领域建模](https://github.com/agiledon/eas-ddd)
-
+* [MyBatis-Plus](https://mybatis.plus/)
