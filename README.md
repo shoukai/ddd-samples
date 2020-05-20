@@ -43,6 +43,10 @@
 
 主页参考： * [MyBatis-Plus](https://mybatis.plus/)，示例参考： *[MyBatis-Plus Samples](https://github.com/baomidou/mybatis-plus-samples)
 
+### Spring Test and Mock
+
+示例参考： *[Testing in Spring Boot](https://www.baeldung.com/spring-boot-testing)
+
 # 示例参考
 
 * [领域驱动设计实践（战术篇）](https://gitbook.cn/gitchat/column/5cbed2f6f00736695f3a8699)
