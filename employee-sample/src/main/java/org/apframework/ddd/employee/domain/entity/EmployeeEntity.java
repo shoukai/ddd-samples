@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "employee", autoResultMap = true)
+@TableName(value = "e_employee", autoResultMap = true)
 public class EmployeeEntity {
     private Long id;
     private String name;
