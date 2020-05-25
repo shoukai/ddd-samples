@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apframework.ddd.employee.domain.repository.mapper.EmployeeMapper">
+    <insert id="saveEmployeeSkillList">
+        INSERT INTO e_employee_skill (employee_id, skill_id, skill_level_id) VALUES
+        <foreach collection="skillList" item="skill" separator=",">
+            (#{skill.employeeId},#{skill.skillId},#{skill.skillLevelId})
+        </foreach>
+    </insert>
+</mapper>
