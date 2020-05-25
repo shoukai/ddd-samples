@@ -21,7 +21,7 @@ public class EmployeeController {
      * 新增员工，员工入职
      */
     @RequestMapping(value = "employee", method = RequestMethod.POST)
-    public EmployeeEntryResponseDTO entry(@RequestBody @Valid EmployeeEntryDTO employeeEntry) {
+    public EmployeeEntryResponseDTO entry(@Valid @RequestBody EmployeeEntryDTO employeeEntry) {
         // 验证 employeeEntry 格式，是否完整，手机号是否正确……
         return new EmployeeEntryResponseDTO(employeeService.entry(employeeEntry));
     }
