@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeEntryResponseDTO {
-    private Integer id;
+    private Long id;
 }

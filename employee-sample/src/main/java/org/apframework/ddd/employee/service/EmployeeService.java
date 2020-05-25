@@ -1,9 +1,8 @@
 package org.apframework.ddd.employee.service;
 
 import org.apframework.ddd.employee.domain.Employee;
-import org.apframework.ddd.employee.domain.WorkLog;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,13 +14,11 @@ public class EmployeeService {
         this.employee = employee;
     }
 
-    public Integer entry(EmployeeEntryDTO employeeEntry) {
-        employee.check(employeeEntry.getIdCard());
-        Integer id = employee.entry(employeeEntry);
-        employee.addSkillList(employeeEntry.getSkillSet());
+    @Transient
+    public Long entry(EmployeeEntryDTO employeeEntry) {
+        Long id = employee.entry(employeeEntry);
         // ……
 
-        WorkLog log = new WorkLog();
         //员工项目变更事件
         return id;
     }
