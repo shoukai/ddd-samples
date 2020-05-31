@@ -5,6 +5,9 @@ import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 
+/**
+ * 员工应用服务
+ */
 @Service
 public class EmployeeService {
 

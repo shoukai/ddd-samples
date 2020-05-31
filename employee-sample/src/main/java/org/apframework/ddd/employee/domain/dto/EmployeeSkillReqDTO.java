@@ -10,8 +10,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeSkillReqDTO {
+    /**
+     * 技能
+     */
     @NotNull(message = "Skill Id 不能为空")
     private Long skillId;
+    /**
+     * 技能级别
+     */
     @NotNull(message = "Skill Level 不能为空")
     private Long skillLevelId;
 }

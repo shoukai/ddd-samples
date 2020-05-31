@@ -47,8 +47,43 @@
 
 示例参考： *[Testing in Spring Boot](https://www.baeldung.com/spring-boot-testing)
 
+## 接口示例
+
+### 新增员工
+
+```shell script
+curl --location --request POST 'localhost:8080/api/v1/employee/employee' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Test",
+	"age":1,
+	"email":"abc@abc.com",
+	"employeeSkills":[
+		{
+			"skillId":1,
+			"skillLevelId":4
+		},
+		{
+			"skillId":4,
+			"skillLevelId":7
+		}	
+	]
+}'
+```
+
+# TODO
+
+* employee get detail
+* employee get summary 
+* employee add junit
+* work log db
+* work log entity
+* work log save
+* work log get and query employee
+
 # 示例参考
 
 * [领域驱动设计实践（战术篇）](https://gitbook.cn/gitchat/column/5cbed2f6f00736695f3a8699)
 * [员工上下文的领域建模](https://github.com/agiledon/eas-ddd)
 * [MyBatis-Plus](https://mybatis.plus/)
+
