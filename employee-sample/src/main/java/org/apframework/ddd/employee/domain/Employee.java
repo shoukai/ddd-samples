@@ -1,7 +1,9 @@
 package org.apframework.ddd.employee.domain;
 
+import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.extern.log4j.Log4j2;
+import org.apframework.ddd.employee.domain.dto.EmployeeDTO;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
 import org.apframework.ddd.employee.domain.entity.EmployeeEntity;
 import org.apframework.ddd.employee.domain.factories.EmployeeFactory;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 员工实体服务
@@ -59,5 +62,29 @@ public class Employee {
         log.info("存储员工技能{}项", count);
         // todo notify employee add done
         return employeeEntity.getId();
+    }
+
+    public EmployeeDTO getById(Long id) {
+        EmployeeEntity employeeEntity = employeeMapper.selectById(id);
+        if (employeeEntity == null) {
+            log.warn("获取员工信息失败，员工id：{}", id);
+            return null;
+        }
+        EmployeeDTO employee = EmployeeDTO.builder()
+                .id(id)
+                .email(employeeEntity.getEmail())
+                .name(employeeEntity.getName()).build();
+        List<EmployeeSkill> skills = employeeMapper.getEmployeeSkillListByEmployeeId(id);
+        if (skills == null) {
+            employee.setSkills(Lists.newArrayList());
+        } else {
+            employee.setSkills(skills.stream().map(
+                    p -> new EmployeeSkillResDTO(
+                            p.getSkillId(), p.getSkillCategory(), p.getSkillName(),
+                            p.getSkillLevelId(), p.getSkillLevelName(), p.getSkillLevelRequirement()
+                    )
+            ).collect(Collectors.toList()));
+        }
+        return employee;
     }
 }

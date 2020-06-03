@@ -3,6 +3,7 @@ package org.apframework.ddd.employee.app.controller;
 import org.apframework.ddd.employee.app.controller.dto.response.EmployeeEntryResponseDTO;
 import org.apframework.ddd.employee.domain.dto.EmployeeDTO;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
+import org.apframework.ddd.employee.infrastructure.exception.BizException;
 import org.apframework.ddd.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +31,13 @@ public class EmployeeController {
      * 获取员工详情
      */
     @RequestMapping(value = "employee", method = RequestMethod.GET)
-    public EmployeeDTO get(@RequestParam Integer id) {
-        return null;
+    public EmployeeDTO get(@RequestParam Long id) {
+        EmployeeDTO employee = employeeService.getEmployeeById(id);
+        if (employee == null) {
+            // 统一异常码框架封装待完善
+            throw new BizException("未获取到指定员工");
+        }
+        return employee;
     }
 
 }

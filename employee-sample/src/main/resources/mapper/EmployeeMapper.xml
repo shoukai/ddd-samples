@@ -7,4 +7,21 @@
             (#{skill.employeeId},#{skill.skillId},#{skill.skillLevelId})
         </foreach>
     </insert>
+
+    <select id="getEmployeeSkillListByEmployeeId" resultType="org.apframework.ddd.employee.domain.vo.EmployeeSkill">
+        SELECT
+            es.id AS id,
+            es.skill_id AS skillId,
+            s.category AS skillCategory,
+            s.NAME AS skillName,
+            es.skill_level_id AS skillLevelId,
+            l.`name` AS skillLevelName,
+            l.requirement AS skillLevelRequirement
+        FROM
+            `e_employee_skill` es
+            INNER JOIN ( SELECT * FROM e_skill ) s ON s.id = es.skill_id
+            INNER JOIN ( SELECT * FROM e_skill_level ) l ON l.id = es.skill_level_id
+        WHERE
+            es.employee_id = #{id}
+    </select>
 </mapper>

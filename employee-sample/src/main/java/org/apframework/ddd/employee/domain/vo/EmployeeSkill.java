@@ -15,6 +15,13 @@ public class EmployeeSkill {
 
     private Long id;
     private Long employeeId;
+
     private Long skillId;
+    private String skillCategory;
+    private String skillName;
+
     private Long skillLevelId;
+    private String skillLevelName;
+    private String skillLevelRequirement;
+
 }

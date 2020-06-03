@@ -9,7 +9,8 @@ import java.util.List;
 
 public interface EmployeeMapper extends BaseMapper<EmployeeEntity> {
 
-
     int saveEmployeeSkillList(@Param("skillList") List<EmployeeSkill> skillList);
+
+    List<EmployeeSkill> getEmployeeSkillListByEmployeeId(@Param("id") Long id);
 
 }
