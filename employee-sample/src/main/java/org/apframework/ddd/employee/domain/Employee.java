@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.extern.log4j.Log4j2;
 import org.apframework.ddd.employee.domain.dto.EmployeeDTO;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
+import org.apframework.ddd.employee.domain.dto.EmployeeSummaryDTO;
 import org.apframework.ddd.employee.domain.entity.EmployeeEntity;
 import org.apframework.ddd.employee.domain.factories.EmployeeFactory;
 import org.apframework.ddd.employee.domain.dto.EmployeeSkillResDTO;
@@ -86,5 +87,18 @@ public class Employee {
             ).collect(Collectors.toList()));
         }
         return employee;
+    }
+
+    public EmployeeSummaryDTO getSummaryById(Long id) {
+        EmployeeEntity employeeEntity = employeeMapper.selectById(id);
+        if (employeeEntity == null) {
+            log.warn("获取员工信息失败，员工id：{}", id);
+            return null;
+        }
+        return EmployeeSummaryDTO.builder()
+                .email(employeeEntity.getEmail())
+                .id(employeeEntity.getId())
+                .name(employeeEntity.getName())
+                .build();
     }
 }

@@ -3,6 +3,7 @@ package org.apframework.ddd.employee.service;
 import org.apframework.ddd.employee.domain.Employee;
 import org.apframework.ddd.employee.domain.dto.EmployeeDTO;
 import org.apframework.ddd.employee.domain.dto.EmployeeEntryDTO;
+import org.apframework.ddd.employee.domain.dto.EmployeeSummaryDTO;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,10 @@ public class EmployeeService {
 
     public EmployeeDTO getEmployeeById(Long id) {
         return employee.getById(id);
+    }
+
+    public EmployeeSummaryDTO getEmployeeSummaryById(Long id) {
+        return employee.getSummaryById(id);
     }
 
 }

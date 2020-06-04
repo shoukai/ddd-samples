@@ -71,10 +71,100 @@ curl --location --request POST 'localhost:8080/api/v1/employee/employee' \
 }'
 ```
 
+结果：
+
+```json
+{
+    "id":20
+}
+```
+
+### 获取员工
+
+```shell script
+curl --location --request GET 'localhost:8080/api/v1/employee/employee?id=17' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Test",
+	"age":1,
+	"email":"abc@abc.com",
+	"employeeSkills":[
+		{
+			"skillId":1,
+			"skillLevelId":4
+		},
+		{
+			"skillId":4,
+			"skillLevelId":7
+		}	
+	]
+}'
+```
+
+结果
+
+```json
+{
+    "id": 17,
+    "name": "Test",
+    "email": "abc@abc.com",
+    "skills": [
+        {
+            "skillId": 1,
+            "skillCategory": "develop",
+            "skillName": "Java",
+            "skillLevelId": 4,
+            "skillLevelName": "资深",
+            "skillLevelRequirement": "5-8年"
+        },
+        {
+            "skillId": 4,
+            "skillCategory": "office",
+            "skillName": "excel",
+            "skillLevelId": 7,
+            "skillLevelName": "高级",
+            "skillLevelRequirement": "函数及制图"
+        }
+    ]
+}
+```
+
+### 获取员工摘要
+
+```shell script
+curl --location --request GET 'localhost:8080/api/v1/employee/summary?id=17' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"name":"Test",
+	"age":1,
+	"email":"abc@abc.com",
+	"employeeSkills":[
+		{
+			"skillId":1,
+			"skillLevelId":4
+		},
+		{
+			"skillId":4,
+			"skillLevelId":7
+		}	
+	]
+}'
+```
+
+结果：
+
+```json
+{
+    "id": 17,
+    "name": "Test",
+    "email": "abc@abc.com"
+}
+```
+
 # TODO
 
-* employee get detail
-* employee get summary 
+* (done) employee get detail
+* (done) employee get summary 
 * employee add junit
 * work log db
 * work log entity
